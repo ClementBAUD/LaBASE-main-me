@@ -1,0 +1,115 @@
+<!-- Page Wrapper -->
+<div id="wrapper" style="max-height: 100%;">
+
+  <!-- Sidebar header -->
+  <app-header-admin></app-header-admin>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column" style="max-height: 100%;">
+
+    <!-- Main Content -->
+    <div id="content" >
+
+      <!-- Topbar menu -->
+      <app-menu-admin></app-menu-admin>
+      <!-- End of menu -->
+
+      <!-- Page Heading -->
+      <div class="row">
+        <div class="c-subheader px-3">
+
+          <ol class="breadcrumb border-0 m-0">
+            <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item active"><a href="#">Liste Etudiants</a></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <!-- Content Row -->
+        <div class="row container-fluid" style="padding-top: 10px;">
+          <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col">
+                  <div class="text-xs font-weight-bold text-danger
+                    text-uppercase mb-1">
+                    <p style="color: black;">Liste de tous les Etudiants</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row container-fluid" style="padding-top: 10px;">
+
+          <!-- DataTales Example -->
+          <div class="card">
+
+            <div class="card-body">
+
+              <h6 class="m-2 font-weight-bold">DataTables Example</h6>
+
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered" datatable [dtOptions]="dtOptions"  style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Country</th>
+                      <th>Area</th>
+                      <th>Population</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let country of data | slice: (page-1) *
+                      pageSize : page * pageSize; index as i">
+                      <th>{{ (page -1) * pageSize + i + 1 }}</th>
+                      <td>
+                        <img
+                          [src]="'https://upload.wikimedia.org/wikipedia/commons/'
+                          + country.flag" class="mr-2"
+                          style="width: 20px">
+                        {{ country.name }}
+                      </td>
+                      <td>{{ country.area | number }}</td>
+                      <td>{{ country.population | number }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <app-footer-admin></app-footer-admin>
+
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <app-logout-modal></app-logout-modal>
+  <!-- Logout Modal-->

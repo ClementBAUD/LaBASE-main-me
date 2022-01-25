@@ -1,0 +1,103 @@
+<app-wainting-header></app-wainting-header>
+<div class="wrapper">
+    <!-- Offers Start -->
+    <div class="main-banner-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <owl-carousel-o [options]="customOptions" class="offers-banner ">
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_1.png" alt="">
+                                </div>
+                                <!-- <div class="offer-text-dt">
+                                    <div class="offer-top-text-banner">
+                                        <p>7% Off</p>
+                                        <div class="top-text-1">Buy More & Save More</div>
+                                        <span>Fresh Vegetables</span>
+                                    </div>
+                                    <a href="#" class="Offer-shop-btn hover-btn">Shop Now</a>
+                                </div> -->
+                            </div>
+                        </ng-template>
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_2.png" alt="">
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_3.png" alt="">
+                                </div>
+                            </div>
+                        </ng-template>
+
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Offers End -->
+
+    <!-- Featured Products Start -->
+    <div class="blog-single-dts-text">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bb-des12">
+                        <div class="all-comment">
+                          <div class="alert alert-warning text-center" role="alert" *ngIf="MessageInscription"> <i class="uil uil-exclamation-triangle"></i> {{MessageInscription}}</div>
+
+                            <div *ngIf='statut=="renouvellement"'>
+                                <div class="alert alert-info text-center" role="alert" *ngIf="renewMessage"> <i class="uil uil-exclamation-triangle"></i> {{renewMessage}}</div>
+                            </div>
+
+                            <div class="cmmnt_item" *ngIf='statut=="attente"'>
+                                <h2 style="text-align: center;">Bienvenue sur la B.A.S.E</h2>
+                                <p class="rvds10" style="text-align: center;">Votre compte est en attente de validation, <br> une fois votre compte validé, vous recevrez un mail de validation pour votre compte. <br>
+                                    <span>NB : votre compte sera validé (entre 2 et 3 jours ouvrables) dès réception d'un certificat scolaire validé. </span> </p>
+                                <p class="rvds10" style="text-align: center;">Pour plus d’informations n’hésitez pas à nous contacter à cette adresse : <br> <a href="mailto:contact@boucheries-andre.fr" class="callemail"><i class="uil uil-envelope-alt"></i>contact@boucheries-andre.fr</a> </p>
+                            </div>
+                            <div class="cmmnt_item" *ngIf='statut=="renouvellement"'>
+                                <h2 style="text-align: center;">Renouveler votre compte</h2>
+                                <p class="rvds10" style="text-align: center;">Votre certificat de scolarité a expiré. Merci de nous en faire parvenir un en cours de validité. </p>
+                                <p class="rvds10" style="text-align: center;">Le processus de renouvellement du compte se fait en deux étapes <br> Tout d'abord, mettez à jour votre certificat scolaire dans la section "Mes documents" de la page "Mon profil". <br> Ensuite, attendre le mail
+                                    de validation de votre compte (Ensuite vous recevrez un mail de confirmation).</p>
+                                <p class="rvds10" style="text-align: center;">Pour plus d’informations n’hésitez pas à nous contacter à cette adresse : <br> <a href="mailto:contact@boucheries-andre.fr" class="callemail"><i class="uil uil-envelope-alt"></i>contact@boucheries-andre.fr</a> </p>
+
+                            </div>
+
+                            <div class="cmmnt_item" *ngIf='statut=="valider"'>
+
+                              <div class="alert alert-info text-center" role="alert" *ngIf="validationMessage"> <i class="uil uil-exclamation-triangle"></i> {{validationMessage}}</div>
+
+                              <div style="text-align: center; padding-top: 10px;"> <a (click)="deconnexion()" type="button" class="btn btn-danger" style="color: white;">Déconnexion</a> </div>
+
+                            </div>
+                            <div  style="text-align: center; padding-top: 10px;" > <a (click)="myBrowser()" type="button" class="btn btn-danger" style="color: white;"> Activer notification </a></div>
+
+
+                            <div style="text-align: center; padding-top: 10px;"> <a routerLink="/mode-fonctionnement" type="button" class="btn btn-danger" style="color: white;">Mode de fonctionnement de la B.A.S.E</a> </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured Products End -->
+
+</div>
+<app-footer></app-footer>

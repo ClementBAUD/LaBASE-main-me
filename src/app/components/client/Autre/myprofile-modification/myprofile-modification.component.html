@@ -1,0 +1,130 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'"></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Modification profil</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+        <div style="text-align: center; color: white;">
+          <h2>Modification du profil</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="life-gambo">
+    <div class="container">
+      <div class="main-body">
+
+        <!-- /Breadcrumb -->
+        <div class="d-flex justify-content-center" style="margin-bottom: 100px;"
+          *ngIf="!Loading">
+          <div class="spinner-border text-danger m-5"style="width: 70px; height:
+            70px;" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div class="row gutters-sm" *ngIf="Loading">
+
+          <div class="contact-form">
+            <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" *ngIf="Loading">
+              <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+              <div class="form-group mt-1">
+                <label class="control-label">Nom*</label>
+                <div class="ui search focus">
+                  <div class="ui left icon input swdh11 swdh19">
+                    <input id="nom" name="nom" type="text" placeholder="Votre Nom" class="prompt srch_explore" [ngClass]="{
+                      'is-invalid': submitted && nom.errors }"
+                      formControlName="nom">
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && !nom.valid">
+                <p style="color:red" [hidden]="!nom.errors.required">
+                  Nom est obligatoire
+                </p>
+              </div>
+
+              <div class="form-group mt-1">
+                <label class="control-label">Prénom*</label>
+                <div class="ui search focus">
+                  <div class="ui left icon input swdh11 swdh19">
+                    <input id="prenom" name="prenom" type="text"
+                      placeholder="Votre Prenom" class="prompt srch_explore"
+                      [ngClass]="{ 'is-invalid': submitted && prenom.errors }"
+                      formControlName="prenom">
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && !prenom.valid">
+                <p style="color:red" [hidden]="!prenom.errors.required">
+                  Prénom est obligatoire
+                </p>
+              </div>
+
+              <div class="form-group mt-1">
+                <label class="control-label">Téléphone*</label>
+                <div class="ui search focus">
+                  <div class="ui left icon input swdh11 swdh19">
+                    <input id="tel" name="tel" type="text" placeholder="Numéro de téléphone" class="prompt srch_explore" [ngClass]="{
+                      'is-invalid': submitted && tel.errors }"
+                      formControlName="tel">
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && !tel.valid">
+                <p style="color:red" [hidden]="!tel.errors.required">
+                  Téléphone est obligatoire
+                </p>
+              </div>
+
+              <div class="form-group mt-1">
+                <label class="control-label">Email*</label>
+                <div class="ui search focus">
+                  <div class="ui left icon input swdh11 swdh19">
+                    <input id="email" name="email" type="email"
+                      placeholder="Adresse email" class="prompt srch_explore"
+                      [ngClass]="{ 'is-invalid': submitted && email.errors }"
+                      formControlName="email">
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && !email.valid">
+                <p style="color:red" [hidden]="!email.errors.required">
+                  Email est obligatoire
+                </p>
+                <p style="color:red" [hidden]="!email.errors.email">
+                  adresse e-mail non valide
+                </p>
+              </div>
+
+              <button class="next-btn16 hover-btn mt-3" type="submit"
+                data-btntext-sending="Sending...">valider</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

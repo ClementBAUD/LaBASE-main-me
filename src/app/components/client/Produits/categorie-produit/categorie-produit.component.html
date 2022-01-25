@@ -1,0 +1,108 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Catégorie Produit</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <h4>Liste des catégories de Produits</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="Loading">
+      <div *ngIf="userMag['Ouvert'] =='1'">
+          <div *ngIf="listeCategorie?.length; else noproduit">
+
+      <!-- New Products End -->
+      <!-- Best Values Offers Start -->
+      <div class="section145">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-title-tt">
+                        <div class="main-title-left">
+                            <h2>Catégories</h2>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="listeCategorie?.length; else noproduit">
+                  <div class="row" >
+                    <div class="col"  *ngFor="let categorie of listeCategorie" >
+                      <a  [routerLink]="['/categorie-liste-produits',categorie.id]"  class="card p-3 mb-2" style="text-decoration: none; height: 170px;">
+                        <div class="card-body " style="text-align: center;display: grid;" >
+
+                          <h1 style="color:red;" >{{categorie.nom | uppercase}}</h1>
+                        </div>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noproduit>
+       <div class="blog-single-dts-text">
+        <div class="container">
+            <div class=" ">
+                <div class="col">
+                    <div class="bb-des12">
+                        <div class="all-comment">
+
+                            <div class="cmmnt_item">
+                                <h2 style="text-align: center;">Plus de produit disponible</h2>
+                                <p class="rvds10" style="text-align: center;">C'est fini pour aujourd'hui ! A demain :).</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </ng-template>
+
+
+  </div>
+  <div  *ngIf="userMag['Ouvert'] =='0'" >
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="justify-content-center">
+              <div class="col">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+
+                          <div class="cmmnt_item">
+                              <h2 style="text-align: center;">Votre magasin la BASE est actuellement fermé</h2>
+                              <p class="rvds10" style="text-align: center;">Vous serez informé dès que le magasin sera ouvert et vous pourrez alors passer votre commande.</p>
+                              <p class="rvds10" style="text-align: center;">Si vous souhaitez connaître les heures d'ouverture de votre magasin la BASE, vous pouvez cliquer <a routerLink="/information" >ici</a>  </p>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+  <app-footer class="mt-4"></app-footer>

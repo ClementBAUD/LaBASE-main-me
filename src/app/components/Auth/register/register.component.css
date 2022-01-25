@@ -1,0 +1,12 @@
+::selection {
+	color: #000000;
+	background-color: red !important;
+}
+
+/* for firefox */
+::moz-selection {
+	color: #000000;
+	background-color: red;
+}
+
+

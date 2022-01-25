@@ -1,0 +1,179 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Mon panier</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <h4>Contenu du panier</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="container">
+
+            <div class="row" *ngIf="panier > 0">
+                <div class="col">
+                    <div class="left-side-tabs">
+                        <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+                        <div class="row">
+                            <aside class="col-lg-9">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-shopping-cart">
+                                            <thead class="text-muted" style="text-align: center;">
+                                                <tr class="small text-uppercase">
+                                                    <th scope="col">Image</th>
+                                                    <th scope="col">Designation</th>
+                                                    <th scope="col">Quantité</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align: center;" *ngFor="let product of listeProduit">
+                                                <tr>
+                                                    <td>
+                                                        <img src="assets/images/image-not-found.png" alt="" *ngIf="!product.image" class="img-sm">
+                                                        <img src="{{product.image}}" alt="" *ngIf="product.image" class="img-sm">
+                                                    </td>
+                                                    <td>
+                                                        <p class="info">
+                                                            <a [routerLink]="['/detail-produit',product.id_prodDispo]" class="title text-dark" data-abc="true">{{product.libelle}}</a></p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="price-wrap"> <var class="price">1</var>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a style="color: red; padding: 5px 5px;" (click)="removeCartProduct(product)"> <i class="fas
+                            fa-trash fa-1x"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside class="col-lg-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <dl class="dlist-align">
+                                            <dt>Nombre d'articles : </dt>
+                                            <dd class="text-right ml-3">{{cartservicesService.getLocalCartProducts()}}</dd>
+                                        </dl>
+                                        <dl class="dlist-align">
+                                            <dt>Date : </dt>
+                                            <dd class="text-right text-danger ml-3">{{dates | date }}</dd>
+                                        </dl>
+
+
+                                    </div>
+                                </div>
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                                            <div class="form-group">
+                                                <label for="gender">Choisissez un créneau de retrait  </label> <br>
+
+                                                <div class="row">
+                                                    <div class="row" *ngIf="heurday<=15" >
+                                                      <div class="col">
+                                                        <label >14:00 - 15:00</label>
+                                                      </div>
+                                                      <div class="col">
+                                                        <input  type="radio" value="14:00 - 15:00" name="horaire" formControlName="horaire">
+                                                      </div>
+                                                    </div>
+
+                                                    <div class="row" *ngIf="heurday<=16">
+                                                      <div class="col">
+                                                        <label >15:00 - 16:00</label>
+                                                      </div>
+                                                      <div class="col">
+                                                        <input  type="radio" value="15:00 - 16:00" name="horaire" formControlName="horaire">
+                                                      </div>
+                                                    </div>
+
+                                                    <div class="row" *ngIf="heurday <=17">
+                                                      <div class="col">
+                                                        <label >16:00 - 17:00</label>
+                                                      </div>
+                                                      <div class="col">
+                                                        <input  type="radio" value="16:00 - 17:00" name="horaire" formControlName="horaire">
+                                                      </div>
+                                                    </div>
+
+                                                    <div class="row" *ngIf="heurday <=17">
+                                                        <div class="col">
+                                                          <label >17:00 - 18:00</label>
+                                                        </div>
+                                                        <div class="col">
+                                                          <input  type="radio" value="17:00 - 18:00" name="horaire" formControlName="horaire">
+                                                        </div>
+                                                      </div>
+  
+                                                      <div class="row" *ngIf="heurday <=19">
+                                                      <div class="col">
+                                                        <label >18:00 - 19:00</label>
+                                                      </div>
+                                                      <div class="col">
+                                                        <input  type="radio" value="18:00 - 19:00" name="horaire" formControlName="horaire">
+                                                      </div>
+                                                    </div>
+
+
+
+
+
+                                                </div>
+                                                <div *ngIf="f.horaire.touched && f.horaire.invalid" class="alert alert-danger">
+                                                    <div *ngIf="f.horaire.errors.required">Le choix d'un créneau de retrait est obligatoire.</div>
+                                                </div>
+                                            </div>
+
+                                            <button class="btn btn-out btn-danger btn-square  btn-main" (click)="Commander()" [disabled]="!form.valid">Commander</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" *ngIf="panier === 0">
+                <div class="col">
+                    <div class="left-side-tabs" style="height: 150px;">
+                        <div  style="text-align: center; margin: 50px 50px;">
+
+                            <h1 style="text-align: center;"> Oups !</h1>
+                            <p style="text-align: center; color: black;">Votre panier est vide</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer class="mt-4"></app-footer>

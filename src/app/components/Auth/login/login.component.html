@@ -1,0 +1,61 @@
+<div class="sign-inup">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="sign-form">
+                    <div class="sign-inner">
+                        <div class="sign-logo" id="logo">
+                            <a [routerLink]="['/mode-fonctionnement']" target="_blank"><img src="assets/logo.png" alt=""></a>
+                            <a><img class="logo-inverse" src="assets/logo.png" alt=""></a>
+                        </div>
+                        <div class="form-dt">
+                            <div class="form-inpts checout-address-step">
+                                <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+                                    <div class="form-title">
+                                        <h6>Se connecter</h6>
+                                    </div>
+                                    <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+                                    <div class="alert alert-warning text-center" role="alert" *ngIf="warnmessage">{{warnmessage}}</div>
+
+                                    <div class="form-group pos_rel">
+                                        <input formControlName="email" name="email" type="email" id="email[address]" placeholder="Votre adresse e-mail" class="form-control lgn_input" [ngClass]="{ 'is-invalid': submitted && email.errors }">
+                                        <i class="uil uil-envelope lgn_icon"></i>
+                                    </div>
+                                    <div *ngIf="submitted && !email.valid  ">
+                                        <p style="color:red" [hidden]="!email.errors.required">
+                                            Email est obligatoire
+                                        </p>
+                                        <p style="color:red" [hidden]="!email.errors.email">
+                                            Adresse e-mail non valide
+                                        </p>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <input formControlName="password" name="password" type="password" id="password" placeholder="Entrez le mot de passe" class="form-control lgn_input" [ngClass]="{ 'is-invalid': submitted && password.errors }">
+                                        <i class="uil uil-padlock lgn_icon"></i>
+                                    </div>
+                                    <div *ngIf="submitted && !password.valid  ">
+                                        <p style="color:red" [hidden]="!password.errors.required">
+                                            Mot de passe est obligatoire
+                                        </p>
+                                        <p style="color:red" [hidden]="!password.errors.minlength">
+                                            Le mot de passe doit comporter au moins 6 caractères
+                                        </p>
+                                    </div>
+                                    <button class="login-btn hover-btn" type="submit">Connexion</button>
+                                </form>
+                            </div>
+                            <div class="password-forgor">
+                                <a routerLink="/forgot-password">Mot de passe oublié ?</a>
+                            </div>
+                            <div class="signup-link">
+                                <p>Vous n'avez pas de compte ? <a routerLink="/inscription-etudiant">Inscription étudiant</a></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-mini-footer></app-mini-footer>
+            </div>
+        </div>
+    </div>
+</div>

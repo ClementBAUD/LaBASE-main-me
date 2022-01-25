@@ -1,0 +1,62 @@
+<div class="sign-inup">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="sign-form">
+                    <div class="sign-inner">
+                        <div class="sign-logo" id="logo">
+                            <a><img src="assets/logo.png" alt=""></a>
+                            <a><img class="logo-inverse" src="assets/logo.png" alt=""></a>
+                        </div>
+                        <div class="form-dt">
+                            <div class="form-inpts checout-address-step">
+                                <P class="alert alert-warning text-center">Attention, cette page sera rafraîchie au bout de 14 minutes. </P>
+                                <form [formGroup]="ForgotValidationForm" (ngSubmit)="onSubmit()">
+                                    <div class="form-title">
+                                        <h6>Demander une réinitialisation de mot de passe</h6>
+                                        <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+                                    </div>
+
+                                    <div class="form-group pos_rel">
+                                        <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control lgn_input" [ngClass]="{ 'is-invalid': submitted && password.errors }" formControlName="password">
+                                        <i class="uil uil-padlock lgn_icon"></i>
+                                    </div>
+                                    <div *ngIf="submitted && !password.valid  ">
+                                        <p style="color:red" [hidden]="!password.errors.required">
+                                            Mot de passe est obligatoire
+                                        </p>
+                                        <p style="color:red" [hidden]="!password.errors.minlength">
+                                            Le mot de passe doit comporter au moins 6 caractères
+                                        </p>
+                                    </div>
+
+                                    <div class="form-group pos_rel">
+                                        <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmer le mot de passe" class="form-control lgn_input" [ngClass]="{ 'is-invalid': submitted && confirmPassword.errors }" formControlName="confirmPassword">
+                                        <i class="uil uil-padlock lgn_icon"></i>
+                                    </div>
+                                    <div *ngIf="submitted && !confirmPassword.valid  ">
+                                        <p style="color:red" [hidden]="!confirmPassword.errors.required">
+                                            Confirmer mot de passe est obligatoire
+                                        </p>
+                                        <p style="color:red" [hidden]="!confirmPassword.errors.minlength">
+                                            Confirmer mot de passe doit comporter au moins 6 caractères
+                                        </p>
+                                        <p style="color:red" [hidden]="!confirmPassword.errors.confirmedValidator">
+                                            Confirmer mot de passe et le mot de passe de confirmation doivent correspondre
+                                        </p>
+                                    </div>
+
+                                    <button class="login-btn hover-btn" type="submit">Soumettre</button>
+                                </form>
+                            </div>
+                            <div class="signup-link">
+                                <p>Retourner - <a routerLink="/">Se connecter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-mini-footer></app-mini-footer>
+            </div>
+        </div>
+    </div>
+</div>

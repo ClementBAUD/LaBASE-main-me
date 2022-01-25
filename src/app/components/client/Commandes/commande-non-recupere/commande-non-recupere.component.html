@@ -1,0 +1,91 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home">Accueil</a></li>
+                            <li class="breadcrumb-item"><a routerLink="/historique-commande">Mes commandes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Commandes non récupérées</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <h4>Liste des commandes non récupérées</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="all-product-grid">
+
+            <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!Loading">
+                <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+                    <span class="sr-only">Chargement...</span>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="listecommande?.length; else nocommande">
+                <div class="col-lg-12 col-md-12" *ngFor="let com of listecommande">
+
+                    <a [routerLink]="['/detail-commande',com.id]">
+                        <div class="pdpt-bg">
+                            <div class="pdpt-title">
+                                <h6>Date de commande : {{com.createdAt | date: 'EEEE d MMMM y' }} </h6>
+                            </div>
+                            <div class="order-body10">
+                                <ul class="order-dtsll">
+                                    <li>
+                                        <div class="order-dt-img">
+                                            <img src="assets/Frontend/images/groceries.svg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="order-dt47">
+                                            <h4>numéro commande : {{com.NumCom}}</h4>
+                                            <p>Statut commande : <button class="btn btn-success">{{com.nom_statut}}</button> </p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <ng-template #nocommande>
+                <div class="blog-single-dts-text">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col">
+                                <div class="bb-des12">
+                                    <div class="all-comment">
+
+                                        <div class="cmmnt_item">
+                                            <h2 style="text-align: center;"> Pas de commande </h2>
+                                            <p class="rvds10"  style="text-align: center;">Vous n'avez pas commande.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>
+<app-footer class="mt-4"></app-footer>

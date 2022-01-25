@@ -1,0 +1,192 @@
+<app-header></app-header>
+<div class="wrapper">
+    <!-- Offers Start -->
+    <div class="main-banner-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <owl-carousel-o [options]="customOptions" class="offers-banner ">
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_1.png" alt="">
+                                </div>
+                                <!-- <div class="offer-text-dt">
+                                    <div class="offer-top-text-banner">
+                                        <p>7% Off</p>
+                                        <div class="top-text-1">Buy More & Save More</div>
+                                        <span>Fresh Vegetables</span>
+                                    </div>
+                                    <a href="#" class="Offer-shop-btn hover-btn">Shop Now</a>
+                                </div> -->
+                            </div>
+                        </ng-template>
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_2.png" alt="">
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template class="item" carouselSlide>
+                            <div class="offer-item">
+                                <div class="offer-item-img">
+                                    <div class="gambo-overlay"></div>
+                                    <img src="assets/carrousel_3.png" alt="">
+                                </div>
+                            </div>
+                        </ng-template>
+
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offers End -->
+    <!-- New Products Start -->
+    <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!Loading">
+        <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+            <span class="sr-only">Chargement...</span>
+        </div>
+    </div>
+      <div class="container mt-5">
+        <div class="alert alert-info text-center" role="alert" *ngIf="renewMessage">
+                <i class="uil uil-exclamation-triangle"></i> {{renewMessage}}
+                <p style="color: black;">{{renewMessage1}}</p>
+         </div>
+      </div>
+
+    <div *ngIf="Loading">
+        <div *ngIf="userMag['Ouvert'] =='1'">
+            <div *ngIf="listeProduit?.length; else noproduit">
+                <div class="section145">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-title-tt">
+                                    <div class="main-title-left">
+                                        <span>Pour vous</span>
+                                        <h2>Liste des produits</h2>
+                                    </div>
+                                    <a routerLink="/liste-produits" class="see-more-btn">Voir tout</a>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!LoadingP">
+                                <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+                                    <span class="sr-only">Chargement...</span>
+                                </div>
+                            </div>
+                            <div class="col" *ngIf="LoadingP">
+                                <owl-carousel-o [options]="customOptions1" class="featured-slider" style="padding: 0 0 !important;">
+                                    <ng-template class="item" carouselSlide *ngFor="let produit of listeProduit">
+                                        <div class="product-item">
+                                            <a [routerLink]="['/detail-produit',produit.id_prodDispo]" class="product-img">
+                                                <img src="assets/images/image-not-found.png" alt="" *ngIf="!produit.image">
+                                                <img src="{{produit.image}}" alt="" *ngIf="produit.image">
+
+
+                                            </a>
+                                            <div class="product-text-dt">
+                                                <h4 style="margin: 0 !important;">{{ (produit.libelle.length>20)? (produit.libelle | slice:0:20)+'..':(produit.libelle)  }}</h4>
+                                                <p *ngIf="produit.description"> {{ (produit.description.length>20)? (produit.description | slice:0:20)+'..':(produit.description)  }} </p>
+                                                <p *ngIf="produit.description ==' ' " style=" overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"></p>
+                                            </div>
+                                            <div>
+                                                <button (click)=addtocart(produit) class="btn btn-danger">Ajouter au panier</button >
+                                  </div>
+                              </div>
+                          </ng-template>
+
+                      </owl-carousel-o>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- New Products End -->
+        <!-- Best Values Offers Start -->
+        <div class="section145">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="main-title-tt">
+                          <div class="main-title-left">
+                              <h2>Catégories</h2>
+                          </div>
+                      </div>
+                  </div>
+                  <div *ngIf="listeCategorie?.length; else noproduit">
+                    <div class="row" >
+                      <div class="col"  *ngFor="let categorie of listeCategorie" >
+                        <a  [routerLink]="['/categorie-liste-produits',categorie.id]"  class="card p-3 mb-2" style="text-decoration: none; height: 170px;">
+                          <div class="card-body " style="text-align: center;display: grid;" >
+
+                            <h1 style="color:red;" >{{categorie.nom | uppercase}}</h1>
+                          </div>
+                        </a>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+
+
+              </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noproduit>
+         <div class="blog-single-dts-text">
+          <div class="container">
+              <div class=" ">
+                  <div class="col">
+                      <div class="bb-des12">
+                          <div class="all-comment">
+
+                              <div class="cmmnt_item">
+                                  <h2 style="text-align: center;">Plus de produit disponible</h2>
+                                  <p class="rvds10" style="text-align: center;">C'est fini pour aujourd'hui ! A demain :)</p>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </ng-template>
+
+
+    </div>
+    <div  *ngIf="userMag['Ouvert'] =='0'" >
+      <div class="blog-single-dts-text">
+        <div class="container">
+            <div class="justify-content-center">
+                <div class="col">
+                    <div class="bb-des12">
+                        <div class="all-comment">
+
+                            <div class="cmmnt_item">
+                                <h2 style="text-align: center;">Votre magasin la BASE est actuellement fermé</h2>
+                                <p class="rvds10" style="text-align: center;">Vous serez informé dès que le magasin sera ouvert et vous pourrez alors passer votre commande.</p>
+                                <p class="rvds10" style="text-align: center;">Si vous souhaitez connaître les heures d'ouverture de votre magasin la BASE, vous pouvez cliquer <a routerLink="/information" >ici</a>.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

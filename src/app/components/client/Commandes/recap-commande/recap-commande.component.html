@@ -1,0 +1,110 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home" style="color: black !important;">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">récapitulatif commande </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="default-dt">
+        <div class="container">
+            <div class="row">
+                <div style="text-align: center; color: white;">
+                    <h2>Récapitulatif commande</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-view">
+        <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!Loading">
+            <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+
+        <div>
+            <div *ngIf="commmandeifno?.length; else noproduit">
+                <div *ngIf="LoadingM">
+                    <div *ngIf="Loading">
+                        <div class="all-product-grid">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-8">
+                                        <div class="order-placed-dt" *ngFor="let produit of commmandeifno">
+                                            <div class="d-flex justify-content-center md-2"><i class="uil uil-check-circle icon-circle"></i></div>
+
+                                            <h2>Commande passée avec succès</h2>
+
+                                            <div class="delivery-address-bg">
+                                                <div style="border-bottom: 1px solid #efefef;text-align: center; ">
+                                                    <!-- <h4 style="padding: 5px 5px;">Numéro de commande : </h4> -->
+                                                    <h4 style="padding: 5px 5px;"> Informations relatives à votre commande </h4>
+
+                                                </div>
+                                                <ul class="address-placed-dt1">
+                                                    <li>
+                                                        <p><i class="uil uil-clipboard"></i>Numéro de commande : <button type="button" class="btn btn-warning"> {{produit.NumCom}}</button></p>
+                                                    </li>
+                                                    <li>
+                                                        <p><i class="uil uil-clock"></i>Statut commande : <span>{{produit.statutcommande.nom}}</span></p>
+                                                    </li>
+                                                    <li>
+                                                        <p><i class="uil uil-home-alt"></i>Magasin :<span>{{userMag.nom}}</span></p>
+                                                    </li>
+                                                    <li>
+                                                      <p><i class="uil uil-clock"></i>Créneau de retrait :<span> {{produit.heureRecuperation}} </span></p>
+                                                  </li>
+                                                    <li>
+                                                        <p><i class="uil uil-map-marker-alt"></i>Adresse :<span> {{userMag.adresse}} </span></p>
+                                                    </li>
+                                                </ul>
+                                                <div class="stay-invoice">
+                                                    <div class="st-hm">A bientôt<i class="uil uil-smile"></i></div>
+                                                    <a [routerLink]="['/detail-commande',produit.id]" class="invc-link hover-btn">Suivi de la commande</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <ng-template #noproduit>
+                <div class="blog-single-dts-text">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-lg-10">
+                                <div class="bb-des12">
+                                    <div class="all-comment">
+
+                                        <div class="cmmnt_item">
+                                            <h2 style="text-align: center;">Pas de commande </h2>
+                                            <p class="rvds10">Vous n'avez pas de commande en cours pour le moment.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>

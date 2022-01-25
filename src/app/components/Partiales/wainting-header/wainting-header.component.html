@@ -1,0 +1,77 @@
+<!-- Header Start -->
+<header class="header clearfix">
+    <div class="top-header-group">
+        <div class="top-header">
+          <div class="res_main_logo">
+            <a routerLink="/home" ><img src="assets/96x96.png" alt=""></a>
+        </div>
+        <div class="main_logo" id="logo">
+            <a routerLink="/home" ><img src="assets/125x43.png" alt=""></a>
+            <a routerLink="/home" ><img class="logo-inverse" src="assets/96x96.png" alt=""></a>
+        </div>
+            <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!Loading">
+              <div class="spinner-border text-danger  m-5 " style="width: 10px; height: 10px;" role="status">
+                  <span class="sr-only">Loading...</span>
+              </div>
+          </div>
+            <div class="select_location"  *ngIf="Loading">
+                <div class="ui loc-title" >
+                    <div class="text"  >
+                      <a routerLink="/information" class="offer-link" style="text-decoration:none;"><i class="uil uil-location-point"></i> {{userMag.nom}} .</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="header_right">
+                <ul>
+                    <li>
+                        <a href="tel:0427460620" class="offer-link"><i class="uil uil-phone-alt"></i>04-27-46-06-20</a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact" class="offer-link"><i class="uil uil-question-circle"></i>Aide</a>
+                    </li>
+
+                    <li>
+                    </li>
+                    <li ngbDropdown>
+                        <a class="opts_account">
+                          <img src="assets/icons-user-24.png" alt="">
+                          <span class="user__name">{{isUser.nom}}</span>
+                            <span style="padding:5px" id="dropdownBasic1" ngbDropdownToggle></span>
+                        </a>
+
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="menu dropdown_account">
+                            <a routerLink="/mon-profil" class="item channel_item" ngbDropdownItem><i class="uil uil-apps icon__1"></i>Mon profil</a>
+                            <a routerLink="/faq" ngbDropdownItem class="item channel_item"><i class="uil uil-info-circle icon__1"></i>F.A.Q</a>
+                            <a  class="item channel_item" routerLinkActive="active" data-toggle="modal" data-target="#logoutModal" ngbDropdownItem><i class="uil uil-lock-alt icon__1"></i>Déconnexion</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sub-header-group" style="border-bottom: 1px solid #DCDCDC;">
+        <div class="sub-header">
+
+            <nav class="navbar navbar-expand-lg navbar-light py-3">
+                <div class="container-fluid">
+                    <button class="navbar-toggler menu_toggle_btn" type="button" data-target="#navbarSupportedContent"><i class="uil uil-bars"></i></button>
+                    <div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end bg-dark1 p-3 p-lg-0 mt1-5 mt-lg-0 mobileMenu" id="navbarSupportedContent">
+                        <ul class="navbar-nav main_nav align-self-stretch">
+                            <li class="nav-item" *ngIf='isUser.satutcompte=="attente"'><a routerLink="/waiting-Page" class="nav-link active" title="Home">Accueil</a></li>
+                            <li class="nav-item"  *ngIf='isUser.satutcompte=="renouvellement"'><a routerLink="/renewing-Page" class="nav-link active" title="Home">Accueil</a></li>
+                            <li class="nav-item"><a routerLink="/a-propos" class="nav-link" title="a-propos">A propos de nous</a></li>
+                            <li class="nav-item"><a routerLink="/contact" class="nav-link" title="Contact">Contactez-nous</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+<app-logout></app-logout>

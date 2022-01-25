@@ -1,0 +1,69 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Informations Magasin</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>Informations Magasin</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" *ngIf="Loading">
+          <div  class="cmmnt_item" >
+            <div class="default-title left-text">
+              <h2>{{userMag.nom}}</h2>
+            </div>
+            <div class="about-content">
+              <p style="text-align: justify;">La prise de commande est ouverte de {{ (userMag.HeureOuverture.length>6)? (userMag.HeureOuverture | slice:0:5):(userMag.HeureOuverture) }} à {{ (userMag.HeureFermeture.length>6)? (userMag.HeureFermeture | slice:0:5):(userMag.HeureFermeture)}}.<br>
+                Vous pouvez recupérer vos commandes à partir de 14h jusqu'à la fermeture (en respectant le créneau choisi).<br>
+                Notre Magasin est situé au <a href="https://www.google.fr/maps/place/{{userMag.adresse}}" target="_blank">{{userMag.adresse}}</a></p>
+              <p> Accessible en transport en commun :<br>
+                {{userMag.description}}
+               </p>
+               <p>
+
+                L'adresse mail : <a href="mailto:{{userMag.email}}" class="callemail" target="_blank"><i class="uil uil-envelope-alt"></i>{{userMag.email}}</a> <br>
+                Numéro de téléphone : <a href="tel:{{userMag.tel}}" class="offer-link" target="_blank"><i class="uil uil-phone-alt"></i>{{userMag.tel}}</a> <br>
+               </p>
+            </div>
+          </div>
+
+        </div>
+        <div  class="col-lg-6" *ngIf="!Loading">
+          <p>
+           Aucune information n'a pu être récupérée, veuillez réessayer plus tard.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-img">
+            <img src="assets/logo-BA-290.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

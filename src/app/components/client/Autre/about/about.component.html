@@ -1,0 +1,60 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+
+                      <li class="breadcrumb-item active" aria-current="page">A propos de nous</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>A propos de nous</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-10">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+
+                          <div class="cmmnt_item">
+                              <h2 style="text-align: center;">QUI SOMMES-NOUS  ?</h2>
+                              <p style=" color:black; text-justify: auto;">Depuis plus de 80 ans, Boucheries André́, du prénom de son fondateur, symbolise la tradition bouchère régionale et les valeurs familiales. <br>
+                                3 générations se sont succédées, avec chaque fois cette même passion et la volonté de travailler en circuit court « du pré à l’assiette ».<br>
+                                Nous préparons nos viandes, notre charcuterie et nos plats traiteurs dans notre atelier situé à Brignais, et les proposons dans nos 8 magasins. <br>
+                                Nous avons aussi à cœur de proposer une sélection des meilleurs produits locaux en crèmerie, épicerie, fruits et légumes... Des produits dénichés
+                                le plus possible en circuit court par nos « dénicheurs de talents », notre service achat.  <br> </p>
+                          </div>
+
+
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

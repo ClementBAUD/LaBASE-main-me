@@ -1,0 +1,124 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'"></app-header>
+
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home" style="color: black !important;">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="default-dt">
+        <div class="container">
+            <div class="row">
+                <div style="text-align: center; color: white;">
+                    <h2>Liste des produits</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-view">
+        <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!Loading">
+            <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+                <span class="sr-only">Chargement...</span>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center" style="margin-bottom: 100px;" *ngIf="!LoadingM">
+            <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+                <span class="sr-only">Chargement...</span>
+            </div>
+        </div>
+
+        <div class="container" *ngIf="LoadingM">
+          <div *ngIf="userMag['Ouvert'] =='1'">
+              <div *ngIf="listeProduit?.length; else noproduit"  class="container">
+                  <div class="row" *ngIf="Loading" >
+                      <div class="row">
+                          <h1 style="text-align: center; padding-bottom: 10px;">{{listeProduit[0]['nom_famille'] }}</h1>
+                      </div>
+                      <div  class="row" *ngFor="let produit of listeProduit">
+
+
+                        <div class="col-lg-3 col-md-6">
+                          <div class="product-item mb-30">
+                            <a [routerLink]="['/detail-produit',produit.id_prodDispo]" class="product-img">
+                              <img src="assets/images/image-not-found.png" alt="" *ngIf="!produit.image">
+                              <img src="{{produit.image}}" alt="" *ngIf="produit.image">
+
+                          </a>
+                          <div class="product-text-dt">
+                            <h4 style="margin: 0 !important;"> {{ produit.libelle  }} </h4>
+                            <p *ngIf="produit.description"> {{ produit.description  }}</p>
+                            <p *ngIf="produit.description ==' ' " style=" overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"></p>
+                        </div>
+                        <button (click)=addtocart(produit) class="btn btn-danger">Ajouter au panier</button >
+
+                          </div>
+                        </div>
+                      </div>
+
+
+      <!--div class="col-md-12">
+        <div class="more-product-btn">
+          <button class="show-more-btn hover-btn" onclick="window.location.href = '#';">Show More</button>
+                              </div>
+                              </div-->
+                          </div>
+                      </div>
+                      <ng-template #noproduit>
+                          <div class="blog-single-dts-text">
+                              <div class="container">
+                                  <div class="row ">
+                                      <div class="col-lg-10">
+                                          <div class="bb-des12">
+                                              <div class="all-comment">
+
+                                                  <div class="cmmnt_item">
+                                                      <h2 style="text-align: center;">Plus de produit disponible</h2>
+                                                      <p class="rvds10">C'est fini pour aujourd'hui ! A demain :)..</p>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-template>
+                  </div>
+                  <div *ngIf="userMag['Ouvert'] =='0'">
+                      <div class="blog-single-dts-text">
+                          <div class="container">
+                              <div class="row justify-content-center">
+                                  <div class="col-lg-10">
+                                      <div class="bb-des12">
+                                          <div class="all-comment">
+
+                                            <div class="cmmnt_item">
+                                              <h2 style="text-align: center;">Votre magasin la BASE est actuellement fermé</h2>
+                                              <p class="rvds10" style="text-align: center;">Vous serez informé dès que le magasin sera ouvert et vous pourrez alors passer votre commande.</p>
+                                              <p class="rvds10" style="text-align: center;">Si vous souhaitez connaître les heures d'ouverture de votre magasin la BASE, vous pouvez cliquer <a routerLink="/information" >ici</a></p>
+                                          </div>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+      </div>
+
+  </div>
+</div>
+
+
+  <app-footer></app-footer>

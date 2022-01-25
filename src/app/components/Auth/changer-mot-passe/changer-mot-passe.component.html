@@ -1,0 +1,46 @@
+<div class="sign-inup">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="sign-form">
+                    <div class="sign-inner">
+                        <div class="sign-logo" id="logo">
+                            <a><img src="assets/logo.png" alt=""></a>
+                            <a><img class="logo-inverse" src="assets/logo.png" alt=""></a>
+                        </div>
+                        <div class="form-dt">
+
+                            <div class="form-inpts checout-address-step">
+                                <div class="alert alert-danger text-center" role="alert" *ngIf="errormessage">{{errormessage}}</div>
+
+                                <form [formGroup]="passwordForgo" (ngSubmit)="onSubmit()">
+                                    <div class="form-title">
+                                        <h6>Réinitialiser votre mot de passe</h6>
+                                    </div>
+
+                                    <div class="form-group pos_rel">
+                                        <input formControlName="email" name="email" type="email" placeholder="Votre adresse e-mail" class="form-control lgn_input" [ngClass]="{ 'is-invalid': submitted && email.errors }">
+                                        <i class="uil uil-envelope lgn_icon"></i>
+                                    </div>
+                                    <div *ngIf="submitted && !email.valid  ">
+                                        <p style="color:red" [hidden]="!email.errors.required">
+                                            Email est obligatoire
+                                        </p>
+                                        <p style="color:red" [hidden]="!email.errors.email">
+                                            Adresse e-mail non valide
+                                        </p>
+                                    </div>
+                                    <button class="login-btn hover-btn" type="submit">Soumettre</button>
+                                </form>
+                            </div>
+                            <div class="signup-link">
+                                <p><a routerLink="/">Se connecter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-mini-footer></app-mini-footer>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">F.A.Q</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>F.A.Q </h2>
+            <p style="color: white;">Fonctionnement de La B.A.S.E. Boucheries André</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-10">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+
+                          <div class="cmmnt_item">
+                            <h4 > Pourquoi dois-je fournir un certificat de scolarité en cours de validité ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Notre dispositif La BASE est réservé aux étudiants. Nous devons nous assurer que les bénéficiaires de nos dons alimentaires respectent bien cette condition.
+                            </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Comment savoir si des produits sont ajoutés à l’application ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              A chaque mise en ligne de produits, vous serez alerté par notification ou SMS (selon le support que vous utilisez pour vous connecter).                            </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Puis-je prendre autant de produits que je le souhaite ou est-ce limité ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Nous nous gardons la possibilité de limiter le nombre de produits/commande. En effet, les produits que nous donnons se périment le jour de votre retrait de commande (ou quelques jours après), il serait donc dommage d’en prendre trop au risque de ne pas pouvoir tout consommer dans le temps imparti.                             </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Puis-je congeler les produits, si je ne peux pas les consommer dans l’immédiat ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Oui, pour la majorité des produits vous pouvez les congeler. N’hésitez pas à vous renseigner auprès de notre équipe en magasin, le jour de votre retrait de commande.                            </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Le message « Plus de produits pour aujourd’hui » s’affiche, qu’est-ce que cela signifie ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Les produits proposés sur La BASE sont des produits en date du jour (donc à consommer très rapidement), ils sont donc disponibles de façon aléatoire et dans des stocks limités. Certains jours il peut y avoir beaucoup de produits disponibles et le lendemain très peu.                            </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Je me suis inscrit dans un magasin mais je souhaite le modifier, est-ce possible ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Oui tout à fait, il suffit de nous envoyer votre demande par mail à l’adresse : <br> <a href="mailto:contact@boucheries-andre.fr" class="callemail"><i class="uil uil-envelope-alt"></i>contact@boucheries-andre.fr</a> <br>  </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Comment se déroule la récupération de ma commande ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Votre commande est à récupérer le jour même (dans l’après-midi), au créneau que vous aurez sélectionné lors du passage de votre commande.<br>
+                              Une fois en magasin, dirigez-vous vers le point de collecte identifié « La BASE récupération de commande ». Une personne de notre équipe vous remettra votre commande et se chargera de vous accompagner jusqu’à la sortie du magasin (ou en caisse si vous avez effectué des achats en parallèle).<br>
+                              Dans le cas où vous ne pourriez pas venir récupérer votre commande, merci de prévenir le magasin par téléphone. Vos produits pourront alors être donnés à quelqu’un d’autre et non jetés.
+
+                            </p>
+                          </div>
+                          <div class="cmmnt_item">
+                            <h4 > Boucheries André, spécialiste de la viande , pourquoi il n’y en a pas dans les produits disponibles sur La BASE ?</h4>
+                            <p style=" color:black; text-justify: auto;">
+                              Les produits à base de viande crue sont fragiles (et en majorité sans additifs ni conservateurs). Cela ne nous permet pas de les proposer en date courte. Idem pour la volaille et le poisson.
+                            </p>
+                          </div>
+
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

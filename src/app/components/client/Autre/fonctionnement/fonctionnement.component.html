@@ -1,0 +1,59 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Mode de fonctionnement</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>Mode de fonctionnement la B.A.S.E</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-10">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+
+                          <div class="cmmnt_item">
+                            <h4 > Pour commencer :</h4>
+                            <p style=" color:black; text-justify: auto;"> Vous êtes étudiant et vous souhaitez bénéficier de dons alimentaires ? Inscrivez-vous en complétant le formulaire et en joignant votre certificat de scolarité (en cours de validité). <br>
+                            Après validation de votre inscription (et vérification de la conformité de votre certificat) vous aurez accès, chaque jour (sous réserve de disponibilité dans le magasin que vous aurez choisi) à une liste de produits.<br>
+                            Chaque jour, vous serez alerté, via une notification (veillez à bien autoriser les notifications sur votre smartphone) de la mise en ligne des produits.</p>
+                            <p style=" color:black; text-justify: auto;"> Vous pourrez ensuite consulter ces produits et sélectionner ceux de votre choix. <br>
+                            En raison de l’organisation des magasins, les produits à réserver seront consultables du lundi au samedi, et les produits sont à récupérer en magasin le jour même à partir de 14h ( et jusqu’à la fermeture du magasin). </p>
+
+                          </div>
+
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

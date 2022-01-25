@@ -1,0 +1,96 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">CGU</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>CONDITIONS GÉNÉRALES D’UTILISATION</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-10">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+                          <div class="cmmnt_item">
+                              <p class="rvds10">Vous êtes actuellement connecté à la Progressive Web App (PWA) La BASE accessible via l’adresse https://labase-ba.fr/</p>
+                                <br>
+                                <h4>1. INTRODUTION</h4>
+                                <p class="rvds10" style="text-align: justify;">Bienvenue sur l’application solidaire La BASE, qui est la propriété de la société BOUCHERIES ANDRÉ, SAS au capital de 80 000€, domiciliée 2 Avenue du Loup Pendu 69140 Rillieux-la-Pape, immatriculée au RCS de Lyon sous le numéro 332 522 341 (N° TVA intracommunautaire: FR23332522341)
+                                  <br><span style="text-decoration: underline;">Directrice de la publication</span> : Katia BARONNIER, Directrice Générale
+                                  <br><span style="text-decoration: underline;">Email</span> : <a href="mailto:la-base@boucheries-andre.fr" target="_blank">la-base@boucheries-andre.fr</a>
+                                  <br><span style="text-decoration: underline;">Hébergeur</span> : société O2switch, domiciliée 222 Boulevard Gustave Flaubert 63000 Clermont-Ferrand, enregistrée au RCS de Clermont-Ferrand sous le numéro 510 909 807 00024
+                                </p>
+                                <h4>2. LE CONCEPT LA BASE</h4>
+                                <p class="rvds10" style="text-align: justify;">La mission de BOUCHERIES ANDRÉ via son application La BASE est de permettre aux étudiants de bénéficier de dons alimentaires ET de s’engager contre le gaspillage alimentaire, en leur mettant à disposition des produits périssables.</p>
+                                <p class="rvds10" style="text-align: justify;">Les présentes Conditions Générales d’Utilisation (ci-après les “CGU”) régissent les relations entre les Utilisateurs et La BASE. L’accès et l’utilisation de l’Interface et des services qui y sont proposés implique l’acceptation sans réserve des présentes CGU.</p>
+                                <p class="rvds10" style="text-align: justify;">La BASE se réserve le droit de modifier les CGU. Dans ce cas, la nouvelle version des CGU sera disponible sur l’Interface. En tout état de cause, l’Utilisateur ne sera lié que par la seule version des CGU en vigueur au moment auquel l’Utilisateur passe sa Commande.</p>
+                                <h4>3. CONSENTEMENT</h4>
+                                <p class="rvds10" style="text-align: justify;">En effectuant une Commande sur l’Interface, l’Utilisateur atteste :</p>
+                                <p class="rvds10" style="text-align: justify;">- être juridiquement capable de conclure des contrats contraignants</p>
+                                <p class="rvds10" style="text-align: justify;">- être un consommateur et agir à des fins personnelles</p>
+                                <p class="rvds10" style="text-align: justify;">- être étudiant dans un établissement d’enseignement supérieur public, situé en France Métropolitaine et en possession d’un justificatif pour attester de sa situation.</p>
+                                <p class="rvds10" style="text-align: justify;">En acceptant ces Conditions, l’Utilisateur accepte de recevoir toutes informations pertinentes en français.</p>
+                                <p class="rvds10" style="text-align: justify;">Il accepte également de recevoir des courriels et des notifications ou SMS relatifs à toute Commande qu’il a pu passer. BOUCHERIES ANDRÉ a besoin de cette autorisation pour s’assurer que l’Utilisateur reçoive toutes les notifications essentielles relatives à sa Commande.</p>
+                                <h4>4. PRODUIT ET INFORMATIONS SUR LE PRODUIT</h4>
+                                <p class="rvds10" style="text-align: justify;">Les Produits proposés sur l’interface comportent une fiche produit, détaillant leur composition, conditionnement, packaging et allergènes.</p>
+                                <p class="rvds10" style="text-align: justify;">En cas de doute sur une composition d’un produit, tout Utilisateur connaissant une allergie est vivement invité à obtenir confirmation préalable du Magasin avant toute Commande. Les coordonnées du magasin sont disponibles sur l’interface.</p>
+                                <p class="rvds10" style="text-align: justify;">Tous les produits, proposés sur l’Interface, ont des dates de consommation limitées ; nous recommandons donc à l’Utilisateur d’y être particulièrement attentif au moment de sa Commande afin de commander la juste quantité pour sa consommation personnelle.</p>
+                                <h4>5. COMMANDE DES PRODUITS</h4>
+                                <p class="rvds10" style="text-align: justify;">Une liste de produits est disponible en fonction du magasin choisi par l’Utilisateur au moment de son inscription (l’Utilisateur a la possibilité de changer ce magasin de rattachement en adressant un mail à l’adresse <a href="mailto:la-base@boucheries-andre.fr" target="_blank">la-base@boucheries-andre.fr</a>).</p>
+                                <p class="rvds10" style="text-align: justify;">Les produits sont mis en ligne du lundi au samedi en fonction des stocks disponibles.</p>
+                                <h4>6. CONFIRMATION DE COMMANDE</h4>
+                                <p class="rvds10" style="text-align: justify;">Dès réception de la Commande, La BASE prévient le magasin concerné et notifie l’Utilisateur que la Commande a été validée.</p>
+                                <p class="rvds10" style="text-align: justify;">L’Utilisateur reçoit une Confirmation de commande par sms ou notification ou courriel.</p>
+                                <p class="rvds10" style="text-align: justify;">En effectuant une Commande, l’Utilisateur s’engage à se présenter au Magasin à l’heure de Retrait choisie sur l’Interface.</p>
+                                <h4>7. RETRAIT DE COMMANDE</h4>
+                                <p class="rvds10" style="text-align: justify;">Les Produits Réservés sur l’Interface doivent être collectés par l’Utilisateur à l'adresse du Magasin indiquée sur l’Interface et au créneau horaire sélectionné.</p>
+                                <p class="rvds10" style="text-align: justify;">Lors du Retrait, l’Utilisateur doit être en mesure de présenter sa Confirmation de Commande.</p>
+                                <p class="rvds10" style="text-align: justify;">L’Utilisateur est tenu de s'assurer que la Commande retirée est conforme.</p>
+                                <h4>8. DROIT DE RÉCLAMATION</h4>
+                                <p class="rvds10" style="text-align: justify;">En cas de réclamation concernant un Produit, l’Utilisateur doit adresser sa réclamation au Service Client de BOUCHERIES ANDRÉ à l’adresse : <a href="mailto:la-base@boucheries-andre.fr" target="_blank">la-base@boucheries-andre.fr</a></p>
+                                <h4>9. RESPONSABILITE</h4>
+                                <p class="rvds10" style="text-align: justify;">L’Utilisateur s’engage à respecter l’éthique de l’Interface ainsi que les clients et le personnel en magasin.</p>
+                                <p class="rvds10" style="text-align: justify;">Dans le cas où le comportement de l’Utilisateur porterait atteinte à l’image de Boucheries André ou au bon fonctionnement du service La BASE (par des Commandes répétées non retirées sans préavis), Boucheries André peut décider de suspendre temporairement le compte de l’Utilisateur.</p>
+                                <h4>10. PROPRIÉTÉ INTELLECTUELLE</h4>
+                                <p class="rvds10" style="text-align: justify;">L’Utilisateur peut utiliser l’Interface et imprimer et télécharger des extraits de l’Interface pour son usage personnel non commercial sur la BASE suivante :</p>
+                                <p class="rvds10" style="text-align: justify;">- L’Utilisateur ne doit pas recourir à des pratiques abusives sur l’Interface (telles que le piratage ou l’extraction de contenu).</p>
+                                <p class="rvds10" style="text-align: justify;">- Sauf indication contraire, tous les droits de propriété intellectuelle portant sur la structure du Site, de l'application, du Service, sa présentation, les éléments qui le composent (en ce compris les photographies et les images graphiques) appartiennent à BOUCHERIES ANDRÉ ou nous ont été concédés. Dans le cadre des présentes Conditions, toute utilisation d'extraits du site autre que conformément au présent article est interdite.</p>
+                                <p class="rvds10" style="text-align: justify;">- L’utilisateur n'est pas autorisé à utiliser le matériel de l’Interface ou l’Interface elle-même à des fins commerciales sans avoir obtenu l'autorisation écrite préalable de BOUCHERIES ANDRÉ.</p>
+                                <p class="rvds10" style="text-align: justify;">Sauf disposition contraire de la présente clause, l’Interface ne peut être utilisée, et aucune partie de l’Interface ne peut être reproduite ou stockée dans toute autre Interface ou incluse dans tout système ou service public ou privé de récupération électronique, sans l'autorisation écrite préalable de BOUCHERIES ANDRÉ.</p>
+                                <h4>11. DROIT APPLICABLE et JURIDICTION COMPETENTE</h4>
+                                <p class="rvds10" style="text-align: justify;">Les présentes CGU sont régies par le droit français. En cas de litiges, les parties pourront soumettre leur différend à la médiation ou tout autre règlement alternatif des litiges. A défaut d’un règlement alternatif du litige dans les trente (30) jours à compter du différend, les tribunaux français seront exclusivement compétents.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

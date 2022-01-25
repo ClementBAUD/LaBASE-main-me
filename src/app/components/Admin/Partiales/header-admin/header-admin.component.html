@@ -1,0 +1,162 @@
+<!-- Sidebar header -->
+<div class="d-flex justify-content-center" style="margin-bottom: 200px; margin-top: 200px;" *ngIf="!Loading">
+    <div class="spinner-border text-danger  m-5 " style="width: 70px; height: 70px;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar" *ngIf="Loading">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/home-magasin" *ngIf="this.isMag">
+        <div class="sidebar-brand-icon ">
+            <img src="../../assets/logo.png" alt="logotipo" class="logotipo" width="70px" height="70px">
+        </div>
+    </a>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/home-admin" *ngIf="this.isAdmin">
+        <div class="sidebar-brand-icon ">
+            <img src="../../assets/logo.png" alt="logotipo" class="logotipo" width="70px" height="70px">
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active" *ngIf="this.isAdmin">
+        <a class="nav-link" routerLink="/home-admin">
+            <i class="fas fa-fw fa-tachometer-alt"></i> Dashboard
+        </a>
+    </li>
+
+    <li class="nav-item active" *ngIf="this.isMag">
+        <a class="nav-link" routerLink="/home-magasin">
+            <i class="fas fa-fw fa-tachometer-alt"></i> Dashboard
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider" *ngIf="this.isMag">
+
+    <!-- Heading  magasin -->
+
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item" *ngIf="this.isMag">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-store-alt"></i> Commandes
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Liste des commandes:</h6>
+                <a class="collapse-item" routerLink="/commande-magasin-jour">Commandes du jour</a>
+                <a class="collapse-item" routerLink="/magasin-commande-passé">Commandes passées</a>
+                <!--a class="collapse-item" routerLink="/magasin-commande-non-récupérer">Commande non récupérée</a-->
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item" *ngIf="this.isMag">
+        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-clipboard-list"></i> Produits
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Produits disponibles</h6>
+                <a class="collapse-item" routerLink="/liste-produit-disponible">Produits du jour</a>
+                <a class="collapse-item" routerLink="/rechercher-plu-admin">Ajout de produit</a>
+                <a class="collapse-item" routerLink="/liste-all-produit-disponible">Produits donnés ce jour</a>
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item" *ngIf="this.isMag">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMod" aria-expanded="true" aria-controls="collapseMod">
+            <i class="fas fa-users"></i>
+            <span>Utilisateurs</span>
+        </a>
+        <div id="collapseMod" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Gestion Etudiants</h6>
+                <a class="collapse-item" routerLink="/liste-etudiant-magasin">Liste des étudiants</a>
+            </div>
+        </div>
+    </li>
+    <!--Fin Heading  magasin -->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item" *ngIf="this.isAdmin">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-users"></i>
+            <span>Administration</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Gestion Etudiants</h6>
+                <a class="collapse-item" routerLink="/all-etudiant">Liste des étudiants</a>
+                <h6 class="collapse-header">Création utilisateur</h6>
+                <a class="collapse-item" routerLink="/admin-add-user">Ajout des utilisateurs</a>
+                <h6 class="collapse-header">Gestion Magasins</h6>
+                <a class="collapse-item" routerLink="/add-magasin">Ajout d'un magasin</a>
+                <a class="collapse-item" routerLink="/liste-magasin">Liste des magasins</a>
+            </div>
+        </div>
+    </li>
+    <!-- <li class="nav-item" *ngIf="this.isAdmin">
+        <a class="nav-link">
+            <i class="fas fa-cart-arrow-down"></i>
+            <span>Historique des commandes</span></a>
+    </li> -->
+
+
+    <!-- Nav Item - Pagesproduits Menu -->
+    <li class="nav-item" *ngIf="this.isAdmin">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseT" aria-expanded="true" aria-controls="collapseT">
+            <i class="fab fa-product-hunt"></i> Produits
+        </a>
+        <div id="collapseT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Liste des produits:</h6>
+                <a class="collapse-item" routerLink="/add-produits">Ajout des produits</a>
+                <a class="collapse-item" routerLink="/all-produits">Liste des produits</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages produits Menu -->
+    <!-- <li class="nav-item" *ngIf="this.isAdmin">
+        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTN" aria-expanded="true" aria-controls="collapseTN">
+            <i class="far fa-bell"></i> Message
+        </a>
+        <div id="collapseTN" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Message:</h6>
+                <a class="collapse-item">Ajout message push</a>
+                <a class="collapse-item">Liste  message push</a>
+            </div>
+        </div>
+    </li> -->
+
+
+    <!-- Nav Item - Pagesproduits Menu -->
+    <li class="nav-item" *ngIf="this.isAdmin">
+        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseP" aria-expanded="true" aria-controls="collapseP">
+            <i class="fas fa-toolbox"></i> Paramétrer
+        </a>
+        <div id="collapseP" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!--a class="collapse-item" routerLink="/add-contrainte-magasin">Ajout d'une contrainte</a-->
+                <a class="collapse-item" routerLink="/liste-contrainte">Liste des contraintes</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" *ngIf="this.isAdmin">
+
+</ul>

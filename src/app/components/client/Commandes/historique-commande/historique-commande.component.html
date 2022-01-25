@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Mes commandes</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <h4>Mes commandes</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="all-product-grid">
+            <div class="row mt-10">
+                <div class="alert alert-danger text-center md-4" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+                <div class="col-md-4">
+                    <a (click)="submiit()" class="card p-3 mb-2" style="text-decoration: none; height: 170px;">
+                        <div class="card-body " style="text-align: center;display: grid;">
+
+                            <h1 style="color:red;">Commandes du jour</h1>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a routerLink="/commande-passee" class="card p-3 mb-2" style="text-decoration: none; height: 170px;">
+                        <div class="card-body " style="text-align: center;display: grid;">
+
+                            <h1 style="color:red;">Commandes passées</h1>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a routerLink="/commande-non-recuperee" class="card p-3 mb-2" style="text-decoration: none; height: 170px;">
+                        <div class="card-body " style="text-align: center;display: grid;">
+
+                            <h1 style="color:red;">Commandes non recupérées</h1>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<app-footer ></app-footer>

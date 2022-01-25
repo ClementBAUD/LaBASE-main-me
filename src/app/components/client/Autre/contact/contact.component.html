@@ -1,0 +1,54 @@
+<app-wainting-header *ngIf="this.isUser.satutcompte !='valider'"></app-wainting-header>
+<app-header *ngIf="this.isUser.satutcompte =='valider'" ></app-header>
+
+<div class="wrapper">
+  <div class="gambo-Breadcrumb">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"*ngIf="this.isUser.satutcompte =='valider'"  ><a  routerLink="/home" style="color: black !important;" >Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='attente'" ><a  routerLink="/waiting-Page" style="color: black !important;">Accueil</a></li>
+                      <li class="breadcrumb-item" *ngIf="this.isUser.satutcompte =='renouvellement'" ><a  routerLink="/renewing-Page" style="color: black !important;">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contactez-nous</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="default-dt">
+    <div class="container">
+      <div class="row">
+          <div style="text-align: center; color: white;">
+            <h2>Contactez-nous</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="life-gambo">
+    <div class="blog-single-dts-text">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-10">
+                  <div class="bb-des12">
+                      <div class="all-comment">
+
+                          <div class="cmmnt_item">
+                              <p class="rvds10" style="text-align: center;">
+                                Vous avez une question, une suggestion ? <br>
+                                vous pouvez nous écrire à l'adresse mail suivante : <br> <a href="mailto:contact@boucheries-andre.fr" class="callemail"><i class="uil uil-envelope-alt"></i>contact@boucheries-andre.fr</a> <br>
+                                ou nous contacter directement au : <br> <a href="tel:0427460620" class="offer-link"><i class="uil uil-phone-alt"></i>04-27-46-06-20</a> <br>
+                                N'hésitez pas à consulter notre <a routerLink="/faq" class="offer-link">FAQ.</a>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+<app-footer></app-footer>

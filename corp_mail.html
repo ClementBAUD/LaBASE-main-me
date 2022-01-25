@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <style>
+    body{
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        max-width: 100% !important;
+    }
+
+    .item {
+        max-width: 500px;
+        align-self: center;
+        justify-self: center;
+        border: 0px;
+        border-spacing: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <table class="item" style="background-color: none"> 
+        <tr>
+            <td style="background-color: slategray; text-align: center;"><img src="https://labase-ba.fr/assets/128logo.png"></td>
+            <td style="background-color: slategray; text-align: center; color: white;"><h1>${title}</h1></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: justify;"><p>${content}</p><br></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: left; background-color: slategray; color: white; font-style: italic;">La B.A.S.E<br><span style="padding-left: 40px;">Une initiative Boucheries André</span></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
