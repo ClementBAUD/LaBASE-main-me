@@ -8,6 +8,8 @@ export interface Produits {
   allergene?: string;
   valeurNutritionnelle	?: string;
   FamilleId ?: string;
-    Quantite?: number;
-    id_prodDispo?: number;
+  Quantite?: number;
+  Quantite2? : number;
+  id_prodDispo?: number;
+
 }

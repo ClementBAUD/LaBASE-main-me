@@ -260,6 +260,7 @@ export class PanierComponent implements OnInit {
                                 .then((data) => {
                                     // let quantite = 1
                                     tab.forEach(element => {
+                                        console.log(this.commandeClientService.creationlignecommande(element.Quantite, element.id_prodDispo, data['Data']['id']))
                                         this.commandeClientService.creationlignecommande(element.Quantite, element.id_prodDispo, data['Data']['id'])
                                             .then((dat) => {
                                                 this.form.reset()
@@ -298,6 +299,7 @@ export class PanierComponent implements OnInit {
 
     VerifierProduits(tab) {
         return new Promise((resolve, reject) => {
+            
             tab.forEach(element => {
                 console.log("id pro dispo")
                 console.log(this.produitMiseDispoService.getByIDProduitDispo(element.id_prodDispo))
@@ -307,7 +309,7 @@ export class PanierComponent implements OnInit {
                             (res: Produits[]) => {
                                 res.forEach(ele => {
                                     console.log(ele['quantiteActuel']);
-                                    if ((ele['quantiteActuel'] > 0) == false) {
+                                    if ((ele['quantiteActuel'] > 0 || ele['quantiteActuel'] == -1 ) == false) {
                                         console.log(ele['quantiteActuel']);
                                         this.errorMessage = "le produit " + ele['libelle'] + " n'est plus disponible veuillez changer de produit";
                                         this.removeCartProduct(ele)
@@ -320,6 +322,7 @@ export class PanierComponent implements OnInit {
                                 )
                                 this.result = "true";
                                 this.Loading = true;
+                                
                                 resolve("ok");
                             },
                             (err) => {

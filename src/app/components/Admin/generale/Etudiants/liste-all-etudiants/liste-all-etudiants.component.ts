@@ -77,14 +77,16 @@ export class ListeAllEtudiantsComponent implements OnInit {
   }
 
   deleteuser(){
-    console.log("eee")
-    //const data = JSON.parse(localStorage.getItem('auth'))
-    //this.allusersService.deleteuser(data);  
-    const datas = JSON.parse(localStorage.getItem('auth'))
+    console.log("eee");
+    const data = JSON.parse(localStorage.getItem('auth'));
+    this.allusersService.deleteuser(data);  
+    //const datas = JSON.parse(localStorage.getItem('auth'))
       const yourHeader: HttpHeaders = new HttpHeaders({
-       Authorization: `${datas.token}`})
-
+       Authorization: `${data.token}`})
       return new Promise((resolve, reject) => {
+
+
+
         this.http.post(this.api + 'users/deleteUser', {headers:yourHeader}).subscribe( // {idUser: idUser},
           (data) => {
             if (data["statut"] == true) {

@@ -55,6 +55,7 @@
                     <p class="text-muted font-size-sm">Vous êtes actuellement connecté</p>
                     <div *ngIf="!notifActives" style="text-align: center; padding-top: 10px;" > <a (click)="myBrowser()" type="button" class="btn btn-danger" style="color: white;">Activer notification</a></div>
                     <h6 *ngIf="notifActives" class="text-muted font-size-sm">Notifications activées</h6>
+                    <div *ngIf="notifActives" style="text-align: center; padding-top: 10px;" > <a (click)="myBrowser()"><h8>Cliquez ici pour désactiver les notifications</h8></a></div>
                   </div>
                 </div>
               </div>
