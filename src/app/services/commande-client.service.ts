@@ -9,9 +9,39 @@ import { SwPush } from '@angular/service-worker';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
 
+
+
+
+//javascript create JSON object from two dimensional Array
+function arrayToJSONObject (tab){
+  //header
+  var keys = tab[0];
+
+  //vacate keys from main array
+  var newTab = tab.slice(1, tab.length);
+
+  var formatted = [],
+  data = newTab,
+  cols = keys,
+  l = cols.length;
+  for (var i=0; i<data.length; i++) {
+          var d = data[i],
+                  o = {};
+          for (var j=0; j<l; j++)
+                  o[cols[j]] = d[j];
+          formatted.push(o);
+  }
+  return formatted;
+}
+
+
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class CommandeClientService {
   private api = environment.api;
   constructor(private http: HttpClient,private swPush: SwPush,private router:Router) {
@@ -29,6 +59,45 @@ export class CommandeClientService {
     }
     return new Promise((resolve, reject) => {
       this.http.post(this.api + 'commande/creation_first', data,{headers:yourHeader}).subscribe(
+        (resultat) => {
+          //authentification
+          if (resultat['statut'] == true) {
+            resolve(resultat)
+          }
+          else {
+            reject(resultat['message'])
+          }
+        }, (err) => {
+
+          reject(err.error.message)
+        }
+      )
+    })
+  }
+
+//array.
+
+  creationTablignecommande(tab, commandeId) {
+    const datas = JSON.parse(localStorage.getItem('auth'))
+
+    const yourHeader: HttpHeaders = new HttpHeaders({
+     Authorization: `${datas.token}`})
+
+      const Info = {
+        NumCommande: commandeId,
+        tab: tab
+      }
+
+
+
+      console.log("93")
+      let BLABLA = JSON.stringify(Info)
+      console.log(BLABLA)
+      //let JSONTAB = arrayToJSONObject(Info)
+
+      //console.log(JSONTAB)
+    return new Promise((resolve, reject) => {
+      this.http.post(this.api + 'commande/Tab_ligne_commande', BLABLA,{headers:yourHeader}).subscribe(
         (resultat) => {
           //authentification
           if (resultat['statut'] == true) {
