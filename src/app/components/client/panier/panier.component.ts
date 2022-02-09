@@ -254,40 +254,17 @@ export class PanierComponent implements OnInit {
                     this.VerifierProduits(tab)
                         .then(message => {
                             // creation commande
-                            console.log("Création de la commande");
                             this.commandeClientService.creationcommande(heureRecuperation, userId)
                                 .then((data) => {
                                     this.commandeClientService.creationTablignecommande(tab, data['Data']['id'])
                                     .then((dat) => {
                                         this.form.reset()
-                                        console.log("ok tab")
                                         localStorage.setItem('avct_item', null);
                                         return this.router.navigate(['recapitulatif-commande/', data['Data']['id']])
                                     }).catch((err) => {
-                                        console.log("error tab")
                                         this.errorMessage = err;
                                         //CheckLigne = false;
                                     })
-                                    /*
-                                    tab.forEach( element => {
-                                        this.commandeClientService.creationlignecommande(element.Quantite, element.id_prodDispo, data['Data']['id'])
-                                            .then((dat) => {
-                                                this.form.reset()
-                                                console.log("ok")
-                                            }).catch((err) => {
-                                                console.log("error")
-                                                this.errorMessage = err;
-                                                CheckLigne = false;
-                                            })
-                                    })
-                                    
-                                    if (CheckLigne == true) {
-                                        console.log("router")
-                    
-                                    }else {
-                                        return
-                                    }
-                                    */
                                 }).catch((err) => {
                                     this.errorMessage = err;
                                 })
@@ -315,41 +292,23 @@ export class PanierComponent implements OnInit {
 
     VerifierProduits(tab) {
         return new Promise((resolve, reject) => {
-            
             tab.forEach(element => {
-                console.log("id pro dispo")
-                console.log(this.produitMiseDispoService.getByIDProduitDispo(element.id_prodDispo))
                 this.produitMiseDispoService.getByIDProduitDispo(element.id_prodDispo) 
                     .then(data => {
                         this.listeProduitSub = this.produitMiseDispoService.produit$.subscribe(
                             (res: Produits[]) => {
                                 res.forEach(ele => {
-                                    console.log(ele['quantiteActuel']);
-                                    console.log(ele['Quantite2']) ;
-
-
-                                    if (((ele["Quantite2"]) - (ele['quantiteActuel']))  > 0) {
-
-                                        
-                                    } 
-
-                                    /*     fonction useless permet juste de vérifier si produit dispo */
                                     if ((ele['quantiteActuel'] > 0 ) == false) {
-                                        console.log(ele['quantiteActuel']);
+                                        //console.log(ele['quantiteActuel']);
                                         this.errorMessage = "le produit " + ele['libelle'] + " n'est plus disponible veuillez changer de produit";
                                         this.removeCartProduct(ele)
                                         this.form.reset();
                                         reject(this.errorMessage);
                                     }
-                                
-
-
-
                                 }
                                 )
                                 this.result = "true";
                                 this.Loading = true;
-                                
                                 resolve("ok");
                             },
                             (err) => {

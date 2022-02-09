@@ -99,7 +99,7 @@ export class DetailCommandeComponent implements OnInit {
         this.userMag=[]
       }
       this.userMag=data
-      console.log(data)
+      //console.log(data)
       this.LoadingMag=true
 
     })

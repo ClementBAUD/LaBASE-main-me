@@ -83,21 +83,12 @@ export class CommandeClientService {
     const yourHeader: HttpHeaders = new HttpHeaders({
      Authorization: `${datas.token}`})
 
-      const Info = {
+      let Info = {
         NumCommande: commandeId,
         tab: tab
       }
-
-
-
-      console.log("93")
-      let BLABLA = JSON.stringify(Info)
-      console.log(BLABLA)
-      //let JSONTAB = arrayToJSONObject(Info)
-
-      //console.log(JSONTAB)
     return new Promise((resolve, reject) => {
-      this.http.post(this.api + 'commande/Tab_ligne_commande', BLABLA,{headers:yourHeader}).subscribe(
+      this.http.post(this.api + 'commande/Tab_ligne_commande', Info,{headers:yourHeader}).subscribe(
         (resultat) => {
           //authentification
           if (resultat['statut'] == true) {
